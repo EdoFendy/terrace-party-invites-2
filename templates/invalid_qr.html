@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Invalid QR Code{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto text-center">
+    <!-- Error Icon -->
+    <div class="mb-8">
+        <div class="w-24 h-24 bg-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+            <span class="text-4xl">❌</span>
+        </div>
+        <div class="space-y-2">
+            <h1 class="text-3xl font-bold text-gray-800">Oops!</h1>
+            <p class="text-lg text-gray-600">{{ message }}</p>
+        </div>
+    </div>
+
+    <!-- Error Details -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+        <div class="space-y-4">
+            <div class="text-left">
+                <h3 class="font-semibold text-gray-800 mb-2">Possible reasons:</h3>
+                <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• QR code has already been used</li>
+                    <li>• QR code is invalid or expired</li>
+                    <li>• Link was shared incorrectly</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help -->
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div class="flex items-start space-x-2">
+            <span class="text-blue-600 text-xl">💡</span>
+            <div class="text-left">
+                <p class="font-medium text-blue-800">Need help?</p>
+                <p class="text-sm text-blue-700">
+                    Contact the party organizers or check your invitation email 
+                    for the correct QR code.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="space-y-3">
+        <a 
+            href="/"
+            class="block w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+        >
+            Request New Access
+        </a>
+        
+        <button 
+            onclick="history.back()"
+            class="block w-full bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 transition duration-200"
+        >
+            Go Back
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-8 text-center">
+        <p class="text-gray-500 text-sm">
+            Still having issues? Contact support.
+        </p>
+    </div>
+</div>
+{% endblock %}

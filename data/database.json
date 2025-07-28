@@ -1,0 +1,97 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "password"
+  },
+  "requests": [
+    {
+      "firstName": "Edoardo",
+      "lastName": "Atria",
+      "email": "edoardoatria14@gmail.com",
+      "instagram": "_.edoatria",
+      "id": "req_1753731954068_rvygp",
+      "approved": true,
+      "createdAt": "2025-07-28T19:45:54.068Z",
+      "approvedAt": "2025-07-28T19:46:33.864Z"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "token_001",
+      "token": "qr_sofia_abc123",
+      "requestId": "demo_002",
+      "used": false,
+      "createdAt": "2024-01-15T12:00:00.000Z"
+    },
+    {
+      "id": "token_1753726150078",
+      "token": "qr_sofia_qhlb44",
+      "requestId": "demo_002",
+      "used": false,
+      "createdAt": "2025-07-28T18:09:10.078Z"
+    },
+    {
+      "id": "token_1753726153658",
+      "token": "qr_nanni_dit64b",
+      "requestId": "req_1753725458947_zmx7v",
+      "used": false,
+      "createdAt": "2025-07-28T18:09:13.658Z"
+    },
+    {
+      "id": "token_1753726291462",
+      "token": "qr_nanni_aquacp",
+      "requestId": "req_1753725458947_zmx7v",
+      "used": false,
+      "createdAt": "2025-07-28T18:11:31.462Z"
+    },
+    {
+      "id": "token_1753726300837",
+      "token": "qr_andrea_4loi3k",
+      "requestId": "req_1753725904073_f1mlg",
+      "used": false,
+      "createdAt": "2025-07-28T18:11:40.837Z"
+    },
+    {
+      "id": "token_1753726323579",
+      "token": "qr_edoardo_i8416v",
+      "requestId": "req_1753725760187_7cpyf",
+      "used": true,
+      "createdAt": "2025-07-28T18:12:03.579Z",
+      "usedAt": "2025-07-28T18:12:24.748Z"
+    },
+    {
+      "id": "token_1753727479144",
+      "token": "qr_valerio_hpas7b",
+      "requestId": "req_1753727470441_5pro2",
+      "used": true,
+      "createdAt": "2025-07-28T18:31:19.144Z",
+      "usedAt": "2025-07-28T18:32:51.033Z"
+    },
+    {
+      "id": "token_1753731993864",
+      "token": "qr_edoardo_5nyua3",
+      "requestId": "req_1753731954068_rvygp",
+      "used": true,
+      "createdAt": "2025-07-28T19:46:33.864Z",
+      "usedAt": "2025-07-28T19:48:27.389Z"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "session_1753722610845_2hvsxhoj",
+      "createdAt": "2025-07-28T17:10:10.845Z"
+    },
+    {
+      "token": "session_1753726148592_fxi18ccj",
+      "createdAt": "2025-07-28T18:09:08.592Z"
+    },
+    {
+      "token": "session_1753727474129_27mik492",
+      "createdAt": "2025-07-28T18:31:14.129Z"
+    },
+    {
+      "token": "session_1753731989376_nihbi5bw",
+      "createdAt": "2025-07-28T19:46:29.376Z"
+    }
+  ]
+}

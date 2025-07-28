@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Request Access - Terrace After-Party{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-8">
+        <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-3xl">🌊</span>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Terrace After-Party</h1>
+        <p class="text-gray-600">Seaside vibes starting at midnight ✨</p>
+    </div>
+
+    <!-- Success/Error Messages -->
+    {% if success %}
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+        <p class="font-medium">{{ message }}</p>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+        <p class="font-medium">{{ message }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Request Form -->
+    <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Request Access</h2>
+        
+        <form method="post" action="/request-access" class="space-y-4">
+            <div>
+                <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">
+                    First Name
+                </label>
+                <input 
+                    type="text" 
+                    id="first_name" 
+                    name="first_name" 
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Your first name"
+                >
+            </div>
+
+            <div>
+                <label for="last_name" class="block text-sm font-medium text-gray-700 mb-1">
+                    Last Name
+                </label>
+                <input 
+                    type="text" 
+                    id="last_name" 
+                    name="last_name" 
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Your last name"
+                >
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                    Email
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="your@email.com"
+                >
+            </div>
+
+            <div>
+                <label for="instagram" class="block text-sm font-medium text-gray-700 mb-1">
+                    Instagram Handle
+                </label>
+                <div class="relative">
+                    <span class="absolute left-3 top-2 text-gray-500">@</span>
+                    <input 
+                        type="text" 
+                        id="instagram" 
+                        name="instagram" 
+                        required
+                        class="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="yourusername"
+                    >
+                </div>
+            </div>
+
+            <button 
+                type="submit"
+                class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200"
+            >
+                Submit Request 🚀
+            </button>
+        </form>
+
+        <div class="mt-6 text-center text-sm text-gray-600">
+            <p>You'll receive an email if your request is approved!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
