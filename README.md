@@ -28,6 +28,69 @@ Per il deploy su **privateparty.space**, assicurati di configurare:
 2. **Configurazione SMTP** per email reali
 3. **Records DNS** per deliverability (SPF, DKIM, DMARC)
 
+## 📧 ANTI-SPAM: Setup Completo per Inbox Delivery
+
+### 1. Provider SMTP Professionale
+Usa SOLO provider affidabili:
+- ✅ **SendGrid** (raccomandato)
+- ✅ **Mailgun** 
+- ✅ **Amazon SES**
+- ✅ **Postmark**
+- ❌ NON usare Gmail/provider gratuiti
+
+### 2. DNS Records OBBLIGATORI
+
+#### SPF Record (TXT)
+```
+v=spf1 include:sendgrid.net ~all
+```
+
+#### DKIM Record (TXT)
+```
+Nome: mail._domainkey.privateparty.space
+Valore: [chiave pubblica dal provider SMTP]
+```
+
+#### DMARC Record (TXT)
+```
+Nome: _dmarc.privateparty.space
+Valore: v=DMARC1; p=quarantine; rua=mailto:dmarc@privateparty.space
+```
+
+#### MX Record
+```
+privateparty.space. MX 10 mx.sendgrid.net.
+```
+
+### 3. Configurazione Dominio
+- **Warm-up** del dominio: invia email gradualmente
+- **Verifica dominio** presso il provider SMTP
+- **IP dedicato** se possibile
+- **Reverse DNS** configurato
+
+### 4. Variabili Ambiente Anti-Spam
+```env
+EMAIL_FROM="Private Party <noreply@privateparty.space>"
+EMAIL_REPLY_TO=noreply@privateparty.space
+DKIM_DOMAIN=privateparty.space
+DKIM_KEY_SELECTOR=mail
+DKIM_PRIVATE_KEY="[chiave privata DKIM]"
+```
+
+### 5. Test Deliverability
+Testa con:
+- [Mail-tester.com](https://mail-tester.com) (punteggio 10/10)
+- [MXToolbox](https://mxtoolbox.com)
+- Test su Gmail, Outlook, Yahoo
+
+### 6. Monitoraggio
+- Controlla bounce rate < 5%
+- Complaint rate < 0.1%
+- Monitor blacklist status
+- Analytics di apertura/click
+
+⚠️ **CRITICO**: Senza questi setup, le email finiranno in spam!
+
 ## 📁 Database JSON
 
 Tutto è salvato in \`data/database.json\`:

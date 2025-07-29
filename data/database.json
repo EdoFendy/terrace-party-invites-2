@@ -8,21 +8,21 @@
       "firstName": "Edoardo",
       "lastName": "Atria",
       "email": "edoardoatria14@gmail.com",
-      "instagram": "_.edoatria",
-      "id": "req_1753731954068_rvygp",
+      "instagram": "edoatria",
+      "id": "req_1753814319510_3win3",
       "approved": true,
-      "createdAt": "2025-07-28T19:45:54.068Z",
-      "approvedAt": "2025-07-28T19:46:33.864Z"
+      "createdAt": "2025-07-29T18:38:39.510Z",
+      "approvedAt": "2025-07-29T18:39:29.115Z"
     },
     {
       "firstName": "Edoardo",
       "lastName": "Atria",
       "email": "edoardoatria102@gmail.com",
       "instagram": "edoatria",
-      "id": "req_1753801969732_r9l3g",
+      "id": "req_1753814547835_d5ee8",
       "approved": true,
-      "createdAt": "2025-07-29T15:12:49.732Z",
-      "approvedAt": "2025-07-29T15:13:11.145Z"
+      "createdAt": "2025-07-29T18:42:27.835Z",
+      "approvedAt": "2025-07-29T18:42:39.964Z"
     }
   ],
   "tokens": [
@@ -98,6 +98,21 @@
       "requestId": "req_1753801969732_r9l3g",
       "used": false,
       "createdAt": "2025-07-29T15:13:11.145Z"
+    },
+    {
+      "id": "token_1753814369115",
+      "token": "qr_edoardo_v23lv8",
+      "requestId": "req_1753814319510_3win3",
+      "used": true,
+      "createdAt": "2025-07-29T18:39:29.115Z",
+      "usedAt": "2025-07-29T18:45:08.153Z"
+    },
+    {
+      "id": "token_1753814559964",
+      "token": "qr_edoardo_r4tqgi",
+      "requestId": "req_1753814547835_d5ee8",
+      "used": false,
+      "createdAt": "2025-07-29T18:42:39.964Z"
     }
   ],
   "sessions": [
@@ -124,6 +139,18 @@
     {
       "token": "session_1753801984639_eou8rxh4",
       "createdAt": "2025-07-29T15:13:04.639Z"
+    },
+    {
+      "token": "session_1753814060495_ov3mtjgw",
+      "createdAt": "2025-07-29T18:34:20.495Z"
+    },
+    {
+      "token": "session_1753814364906_gqzj8i8r",
+      "createdAt": "2025-07-29T18:39:24.906Z"
+    },
+    {
+      "token": "session_1753814555766_0li7stg1",
+      "createdAt": "2025-07-29T18:42:35.766Z"
     }
   ]
 }

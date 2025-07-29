@@ -87,21 +87,11 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="luxury-button w-full"
+              className="luxury-button w-full relative z-30 cursor-pointer"
             >
               {isLoading ? "Accesso..." : "Accedi"}
             </button>
           </form>
-
-          <div className="mt-6 text-center text-sm text-navy/70">
-            <p>Credenziali demo:</p>
-            <p>
-              <strong>Username:</strong> admin
-            </p>
-            <p>
-              <strong>Password:</strong> password
-            </p>
-          </div>
 
           <div className="mt-4 text-center">
             <a

@@ -153,7 +153,7 @@ export default function AdminPage() {
           </div>
           <button
             onClick={handleLogout}
-            className="luxury-button bg-gradient-to-r from-red-500 to-red-600"
+            className="luxury-button bg-gradient-to-r from-red-500 to-red-600 relative z-30 cursor-pointer"
           >
             Logout
           </button>
@@ -251,7 +251,7 @@ export default function AdminPage() {
                           <button
                             onClick={() => handleApprove(request.id)}
                             disabled={approvingId === request.id}
-                            className="luxury-button bg-gradient-to-r from-green-500 to-green-600 text-sm"
+                            className="luxury-button bg-gradient-to-r from-green-500 to-green-600 text-sm relative z-30 cursor-pointer"
                           >
                             {approvingId === request.id ? "Approvando..." : "Approva"}
                           </button>
@@ -261,14 +261,14 @@ export default function AdminPage() {
                         <button
                           onClick={() => handleEdit(request)}
                           disabled={editingId === request.id}
-                          className="ml-2 bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600 disabled:opacity-50"
+                          className="ml-2 bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600 disabled:opacity-50 relative z-30 cursor-pointer"
                         >
                           {editingId === request.id ? "Modificando..." : "Modifica ✏️"}
                         </button>
                         <button
                           onClick={() => handleDelete(request.id)}
                           disabled={deletingId === request.id}
-                          className="ml-2 bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 disabled:opacity-50"
+                          className="ml-2 bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 disabled:opacity-50 relative z-30 cursor-pointer"
                         >
                           {deletingId === request.id ? "Eliminando..." : "Elimina 🗑️"}
                         </button>

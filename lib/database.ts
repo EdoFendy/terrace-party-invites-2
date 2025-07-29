@@ -112,6 +112,20 @@ export function validateToken(tokenString: string) {
   const token = db.tokens[tokenIndex]
   if (token.used) return { status: "used", token, request: db.requests.find((r) => r.id === token.requestId) }
 
+  const request = db.requests.find((r) => r.id === token.requestId)
+  return { status: "valid", token, request }
+}
+
+// New function to actually use/consume the token
+export function useToken(tokenString: string) {
+  const db = readDatabase()
+  const tokenIndex = db.tokens.findIndex((t) => t.token === tokenString)
+
+  if (tokenIndex === -1) return null
+
+  const token = db.tokens[tokenIndex]
+  if (token.used) return { status: "used", token, request: db.requests.find((r) => r.id === token.requestId) }
+
   // Mark as used
   db.tokens[tokenIndex].used = true
   db.tokens[tokenIndex].usedAt = new Date().toISOString()

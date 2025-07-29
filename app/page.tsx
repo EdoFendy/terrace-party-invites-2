@@ -28,7 +28,10 @@ export default function HomePage() {
 
       if (response.ok) {
         setFormData({ firstName: "", lastName: "", email: "", instagram: "" })
-        setMessage({ text: "Richiesta inviata! Riceverai una email se approvata.", type: "success" })
+        setMessage({ 
+          text: "Richiesta inviata con successo! Se approvata, riceverai una email con il QR code. Controlla anche la cartella SPAM/Posta indesiderata.", 
+          type: "success" 
+        })
       } else {
         setMessage({ text: "Errore nell'invio della richiesta.", type: "error" })
       }
@@ -52,7 +55,7 @@ export default function HomePage() {
             <span className="text-xl uppercase tracking-widest font-thin">RSVP</span>
           </div>
           <h1 className="text-primary">After-Party Terrazza</h1>
-          <p>Inizio ore 00:00 sul mare ✨</p>
+          <p>Terrazze sul mare - Marinella di Selinunte</p>
           <div className="corner-decoration corner-decoration-br" />
         </div>
 
@@ -130,7 +133,7 @@ export default function HomePage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="luxury-button w-full relative overflow-hidden"
+              className="luxury-button w-full relative overflow-hidden z-30 cursor-pointer"
             >
               {isSubmitting ? "Invio..." : "Invia Richiesta"}
             </button>
@@ -143,6 +146,24 @@ export default function HomePage() {
             >
               Admin Login
             </a>
+          </div>
+
+          {/* Spam Warning */}
+          <div className="mt-6 p-4 bg-yellow-50/80 border border-yellow-200 rounded-sm">
+            <div className="flex items-start space-x-3">
+              <div className="text-yellow-600 mt-0.5">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-yellow-800 mb-1">Importante</p>
+                <p className="text-yellow-700">
+                  Se la tua richiesta viene approvata, <strong>controlla anche la cartella SPAM</strong> della tua email. 
+                  Le email automatiche a volte finiscono lì per errore.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

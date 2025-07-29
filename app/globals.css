@@ -40,21 +40,22 @@
            relative overflow-hidden transition-all duration-500 hover:shadow-navy;
     &::before {
       content: '';
-      @apply absolute inset-0 bg-pattern-lines opacity-5;
+      @apply absolute inset-0 bg-pattern-lines opacity-5 pointer-events-none;
     }
     &::after {
       content: '';
-      @apply absolute top-0 left-0 w-full h-px bg-gradient-navy opacity-20;
+      @apply absolute top-0 left-0 w-full h-px bg-gradient-navy opacity-20 pointer-events-none;
     }
   }
 
   .luxury-button {
     @apply bg-gradient-navy text-white font-light py-3 px-8 rounded-sm
            transition-all duration-300 shadow-elegant hover:shadow-navy hover:scale-105
-           disabled:opacity-50 disabled:cursor-not-allowed tracking-widest uppercase text-sm;
+           disabled:opacity-50 disabled:cursor-not-allowed tracking-widest uppercase text-sm
+           relative z-20 cursor-pointer;
     &::before {
       content: '';
-      @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300;
+      @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300 pointer-events-none;
     }
     &:hover::before {
       @apply opacity-100;
@@ -65,7 +66,7 @@
     @apply bg-white border border-border rounded-sm px-4 py-3
            focus:outline-none focus:ring-1 focus:ring-navy/30
            text-foreground placeholder-foreground/40 font-light
-           transition-all duration-300 relative z-10;
+           transition-all duration-300 relative z-20;
   }
 
   /* Animations */
@@ -87,7 +88,7 @@
 
   /* Decorative Elements */
   .luxury-divider {
-    @apply my-12 h-px bg-gradient-navy relative overflow-hidden opacity-20;
+    @apply my-12 h-px bg-gradient-navy relative overflow-hidden opacity-20 pointer-events-none;
     &::before {
       content: '';
       @apply absolute top-0 left-0 w-full h-full bg-pattern-lines opacity-10;
@@ -99,17 +100,17 @@
            relative overflow-hidden;
     &::after {
       content: '';
-      @apply absolute inset-0 border-2 border-navy/5 rounded-lg;
+      @apply absolute inset-0 border-2 border-navy/5 rounded-lg pointer-events-none;
       margin: -1px;
     }
   }
 
   /* Animated Decorations */
   .corner-decoration {
-    @apply absolute w-12 h-12 pointer-events-none;
+    @apply absolute w-12 h-12 pointer-events-none z-0;
     &::before, &::after {
       content: '';
-      @apply absolute bg-navy/10 transition-all duration-500;
+      @apply absolute bg-navy/10 transition-all duration-500 pointer-events-none;
     }
     &::before {
       @apply w-full h-px;
@@ -139,5 +140,19 @@
     &:hover {
       @apply -translate-y-1 shadow-navy;
     }
+  }
+
+  /* Ensure all interactive elements are clickable */
+  button, input, select, textarea, a {
+    @apply relative z-20;
+  }
+
+  /* Fix for any remaining overlay issues */
+  .luxury-card button,
+  .luxury-card input,
+  .luxury-card select,
+  .luxury-card textarea,
+  .luxury-card a {
+    @apply relative z-30;
   }
 }
