@@ -44,7 +44,7 @@ function ensureDatabase(): void {
     const initialData: DatabaseSchema = {
       admin: {
         username: "admin",
-        password: "password",
+        password: "Privateparty2025!",
       },
       requests: [],
       tokens: [],
