@@ -126,9 +126,10 @@ export default function AdminPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-light text-foreground flex items-center justify-center relative">
+        <div className="absolute inset-0 bg-pattern-lines opacity-5" />
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-navy mx-auto mb-6"></div>
           <p>Caricamento...</p>
         </div>
       </div>
@@ -140,103 +141,109 @@ export default function AdminPage() {
   const pendingRequests = requests.filter((r) => !r.approved).length
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-8">
+    <div className="min-h-screen bg-gradient-light text-foreground p-12 relative">
+      <div className="absolute inset-0 bg-pattern-lines opacity-5" />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-12 relative">
+          <div className="corner-decoration corner-decoration-tl" />
           <div>
             <h1>Admin Panel</h1>
             <p>Gestione inviti terrazza</p>
           </div>
-          <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+          <button
+            onClick={handleLogout}
+            className="luxury-button bg-gradient-to-r from-red-500 to-red-600"
+          >
             Logout
           </button>
+          <div className="corner-decoration corner-decoration-br" />
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="luxury-card hover-lift">
             <div className="flex items-center">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <span className="text-2xl">📝</span>
+              <div className="p-3 bg-gradient-navy rounded-lg text-white shadow-elegant">
+                <span className="text-sm uppercase tracking-widest font-thin">Total</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Totale Richieste</p>
-                <p className="text-2xl font-bold text-gray-900">{totalRequests}</p>
+                <p className="text-sm font-medium text-navy/70">Totale Richieste</p>
+                <p className="text-3xl font-bold text-navy">{totalRequests}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="luxury-card hover-lift">
             <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <span className="text-2xl">✅</span>
+              <div className="p-3 bg-gradient-navy rounded-lg text-white shadow-elegant">
+                <span className="text-sm uppercase tracking-widest font-thin">Done</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Approvate</p>
-                <p className="text-2xl font-bold text-gray-900">{approvedRequests}</p>
+                <p className="text-sm font-medium text-navy/70">Approvate</p>
+                <p className="text-3xl font-bold text-navy">{approvedRequests}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="luxury-card hover-lift">
             <div className="flex items-center">
-              <div className="p-2 bg-yellow-100 rounded-lg">
-                <span className="text-2xl">⏳</span>
+              <div className="p-3 bg-gradient-navy rounded-lg text-white shadow-elegant">
+                <span className="text-sm uppercase tracking-widest font-thin">Pending</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">In Attesa</p>
-                <p className="text-2xl font-bold text-gray-900">{pendingRequests}</p>
+                <p className="text-sm font-medium text-navy/70">In Attesa</p>
+                <p className="text-3xl font-bold text-navy">{pendingRequests}</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Requests Table */}
-        <div className="bg-white rounded-lg shadow overflow-hidden">
+        <div className="luxury-card overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-800">Richieste di Accesso</h2>
+            <h2>Richieste di Accesso</h2>
           </div>
 
           {requests.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+              <table className="min-w-full divide-y divide-navy/10">
+                <thead className="bg-navy/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nome</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Instagram</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Stato</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Data</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Azioni</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-navy/70 uppercase tracking-wider">Nome</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-navy/70 uppercase tracking-wider">Email</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-navy/70 uppercase tracking-wider">Instagram</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-navy/70 uppercase tracking-wider">Stato</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-navy/70 uppercase tracking-wider">Data</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-navy/70 uppercase tracking-wider">Azioni</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="divide-y divide-navy/10">
                   {requests.map((request) => (
-                    <tr key={request.id} className="hover:bg-gray-50">
+                    <tr key={request.id} className="hover:bg-navy/5 transition-colors duration-200">
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-navy">
                           {request.firstName} {request.lastName}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{request.email}</div>
+                        <div className="text-sm text-navy">{request.email}</div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">@{request.instagram}</div>
+                        <div className="text-sm text-navy">@{request.instagram}</div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         {request.approved ? (
-                          <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
-                            Approvata ✅
+                          <span className="inline-flex px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 shadow-sm">
+                            Approvata
                           </span>
                         ) : (
-                          <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                            In Attesa ⏳
+                          <span className="inline-flex px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 shadow-sm">
+                            In Attesa
                           </span>
                         )}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-navy/70">
                         {new Date(request.createdAt).toLocaleDateString("it-IT")}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -244,12 +251,12 @@ export default function AdminPage() {
                           <button
                             onClick={() => handleApprove(request.id)}
                             disabled={approvingId === request.id}
-                            className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600 disabled:opacity-50"
+                            className="luxury-button bg-gradient-to-r from-green-500 to-green-600 text-sm"
                           >
-                            {approvingId === request.id ? "Approvando..." : "Approva 🚀"}
+                            {approvingId === request.id ? "Approvando..." : "Approva"}
                           </button>
                         ) : (
-                          <span className="text-gray-400 text-sm">Approvata</span>
+                          <span className="text-navy/40 text-sm">Approvata</span>
                         )}
                         <button
                           onClick={() => handleEdit(request)}
@@ -272,13 +279,7 @@ export default function AdminPage() {
               </table>
             </div>
           ) : (
-            <div className="px-6 py-12 text-center">
-              <span className="text-6xl mb-4 block">📭</span>
-              <p className="text-gray-500">Nessuna richiesta ancora.</p>
-              <a href="/" className="text-blue-500 hover:text-blue-600 mt-2 inline-block">
-                Vai alla pagina richieste
-              </a>
-            </div>
+            <div className="text-center py-12 text-navy/50">Nessuna richiesta trovata</div>
           )}
         </div>
 

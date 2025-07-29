@@ -16,6 +16,18 @@ npm run dev
 
 **È tutto qui!** Il sistema è subito funzionante su http://localhost:3000
 
+## 🌐 Configurazione Produzione
+
+Per il deploy su **privateparty.space**, assicurati di configurare:
+
+1. **Variabile ambiente principale**:
+   ```
+   NEXT_PUBLIC_BASE_URL=https://privateparty.space
+   ```
+
+2. **Configurazione SMTP** per email reali
+3. **Records DNS** per deliverability (SPF, DKIM, DMARC)
+
 ## 📁 Database JSON
 
 Tutto è salvato in \`data/database.json\`:

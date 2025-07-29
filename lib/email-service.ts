@@ -4,7 +4,7 @@ import QRCode from 'qrcode'
 export class EmailService {
   static async sendInvitation(email: string, guestName: string, qrToken: string): Promise<boolean> {
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://privateparty.space'
       const invitationUrl = `${baseUrl}/q/${qrToken}`
       const qrBuffer = await QRCode.toBuffer(invitationUrl)
 

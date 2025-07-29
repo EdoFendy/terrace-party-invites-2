@@ -1,8 +1,14 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { readDatabase, addRequest } from "@/lib/database"
+import { readDatabase, addRequest, validateSession } from "@/lib/database"
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    // Check authentication for admin access
+    const sessionToken = request.cookies.get("session")?.value
+    if (!sessionToken || !validateSession(sessionToken)) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
     const db = readDatabase()
     return NextResponse.json({ requests: db.requests })
   } catch (error) {

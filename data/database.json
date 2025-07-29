@@ -13,6 +13,16 @@
       "approved": true,
       "createdAt": "2025-07-28T19:45:54.068Z",
       "approvedAt": "2025-07-28T19:46:33.864Z"
+    },
+    {
+      "firstName": "Edoardo",
+      "lastName": "Atria",
+      "email": "edoardoatria102@gmail.com",
+      "instagram": "edoatria",
+      "id": "req_1753801969732_r9l3g",
+      "approved": true,
+      "createdAt": "2025-07-29T15:12:49.732Z",
+      "approvedAt": "2025-07-29T15:13:11.145Z"
     }
   ],
   "tokens": [
@@ -74,6 +84,20 @@
       "used": true,
       "createdAt": "2025-07-28T19:46:33.864Z",
       "usedAt": "2025-07-28T19:48:27.389Z"
+    },
+    {
+      "id": "token_1753742480145",
+      "token": "qr_andrea_xdqy1s",
+      "requestId": "req_1753742463449_kvc6z",
+      "used": false,
+      "createdAt": "2025-07-28T22:41:20.145Z"
+    },
+    {
+      "id": "token_1753801991145",
+      "token": "qr_edoardo_2ynds5",
+      "requestId": "req_1753801969732_r9l3g",
+      "used": false,
+      "createdAt": "2025-07-29T15:13:11.145Z"
     }
   ],
   "sessions": [
@@ -92,6 +116,14 @@
     {
       "token": "session_1753731989376_nihbi5bw",
       "createdAt": "2025-07-28T19:46:29.376Z"
+    },
+    {
+      "token": "session_1753742476045_wqv5tp3u",
+      "createdAt": "2025-07-28T22:41:16.045Z"
+    },
+    {
+      "token": "session_1753801984639_eou8rxh4",
+      "createdAt": "2025-07-29T15:13:04.639Z"
     }
   ]
 }

@@ -36,53 +36,64 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-light text-foreground flex items-center justify-center p-12 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-pattern-lines opacity-5" />
+
       <div className="max-w-sm w-full">
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gray-800 rounded-full mx-auto mb-4 flex items-center justify-center">
+        <div className="text-center mb-12 relative">
+          <div className="corner-decoration corner-decoration-tl" />
+          <div className="w-20 h-20 bg-gradient-navy rounded-full mx-auto mb-6 flex items-center justify-center shadow-elegant animate-float">
             <span className="text-2xl">🔐</span>
           </div>
           <h1>Admin Login</h1>
+          <div className="corner-decoration corner-decoration-br" />
         </div>
 
-        {error && <div className="mb-4 p-3 bg-red-100 text-red-800 rounded-lg text-sm">{error}</div>}
+        {error && (
+          <div className="mb-6 p-4 luxury-card bg-red-50/80 text-red-800 border-red-200 text-sm">
+            {error}
+          </div>
+        )}
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="luxury-card hover-lift">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+              <label className="block text-sm font-medium text-navy mb-2">Username</label>
               <input
                 type="text"
                 value={credentials.username}
                 onChange={(e) => setCredentials((prev) => ({ ...prev, username: e.target.value }))}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="luxury-input w-full"
                 placeholder="admin"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-navy mb-2">Password</label>
               <input
                 type="password"
                 value={credentials.password}
                 onChange={(e) => setCredentials((prev) => ({ ...prev, password: e.target.value }))}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="luxury-input w-full"
                 placeholder="password"
               />
             </div>
 
+            <div className="luxury-divider" />
+
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 disabled:opacity-50"
+              className="luxury-button w-full"
             >
               {isLoading ? "Accesso..." : "Accedi"}
             </button>
           </form>
 
-          <div className="mt-4 text-center text-sm text-gray-600">
+          <div className="mt-6 text-center text-sm text-navy/70">
             <p>Credenziali demo:</p>
             <p>
               <strong>Username:</strong> admin
@@ -93,7 +104,10 @@ export default function AdminLoginPage() {
           </div>
 
           <div className="mt-4 text-center">
-            <a href="/" className="text-blue-500 hover:text-blue-600 text-sm">
+            <a
+              href="/"
+              className="text-navy hover:text-navy-light transition-colors duration-300 text-sm"
+            >
               ← Torna alla richiesta accesso
             </a>
           </div>

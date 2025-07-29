@@ -40,15 +40,20 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-8">
+    <div className="min-h-screen bg-gradient-light text-foreground p-12 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-pattern-lines opacity-5" />
+
       <div className="max-w-md mx-auto pt-16">
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-accent rounded-full mx-auto mb-4 flex items-center justify-center text-white">
-            <span className="text-3xl">🌊</span>
+        <div className="text-center mb-12 relative">
+          <div className="corner-decoration corner-decoration-tl" />
+          <div className="w-24 h-24 bg-gradient-navy rounded-full mx-auto mb-6 flex items-center justify-center text-white shadow-elegant animate-float">
+            <span className="text-xl uppercase tracking-widest font-thin">RSVP</span>
           </div>
           <h1 className="text-primary">After-Party Terrazza</h1>
           <p>Inizio ore 00:00 sul mare ✨</p>
+          <div className="corner-decoration corner-decoration-br" />
         </div>
 
         {/* Message */}
@@ -56,8 +61,8 @@ export default function HomePage() {
           <div
             className={`mb-6 p-4 rounded-lg ${
               message.type === "success"
-                ? "bg-green-100 text-green-800 border border-green-200"
-                : "bg-red-100 text-red-800 border border-red-200"
+                ? "luxury-card bg-green-50/80 text-green-800 border-green-200"
+                : "luxury-card bg-red-50/80 text-red-800 border-red-200"
             }`}
           >
             {message.text}
@@ -65,72 +70,77 @@ export default function HomePage() {
         )}
 
         {/* Form */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-semibold mb-4">Richiedi Accesso</h2>
+        <div className="luxury-card hover-lift">
+          <h2>Richiedi Accesso</h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+              <label className="block text-sm font-medium text-navy mb-2">Nome</label>
               <input
                 type="text"
                 value={formData.firstName}
                 onChange={(e) => setFormData((prev) => ({ ...prev, firstName: e.target.value }))}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="luxury-input w-full"
                 placeholder="Il tuo nome"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Cognome</label>
+              <label className="block text-sm font-medium text-navy mb-2">Cognome</label>
               <input
                 type="text"
                 value={formData.lastName}
                 onChange={(e) => setFormData((prev) => ({ ...prev, lastName: e.target.value }))}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="luxury-input w-full"
                 placeholder="Il tuo cognome"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <label className="block text-sm font-medium text-navy mb-2">Email</label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="luxury-input w-full"
                 placeholder="tua@email.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Instagram</label>
+              <label className="block text-sm font-medium text-navy mb-2">Instagram</label>
               <div className="relative">
-                <span className="absolute left-3 top-2 text-gray-500">@</span>
+                <span className="absolute left-3 top-3 text-navy/50">@</span>
                 <input
                   type="text"
                   value={formData.instagram}
                   onChange={(e) => setFormData((prev) => ({ ...prev, instagram: e.target.value }))}
                   required
-                  className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="luxury-input w-full pl-8"
                   placeholder="tuousername"
                 />
               </div>
             </div>
 
+            <div className="luxury-divider" />
+
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-accent text-white py-2 px-4 rounded-md hover:opacity-90 disabled:opacity-50 transition duration-200"
+              className="luxury-button w-full relative overflow-hidden"
             >
-              {isSubmitting ? "Invio..." : "Invia Richiesta 🚀"}
+              {isSubmitting ? "Invio..." : "Invia Richiesta"}
             </button>
           </form>
 
-          <div className="mt-6 text-center text-sm text-gray-600">
-            <a href="/admin/login" className="text-blue-500 hover:text-blue-600">
+          <div className="mt-6 text-center text-sm">
+            <a
+              href="/admin/login"
+              className="text-navy hover:text-navy-light transition-colors duration-300"
+            >
               Admin Login
             </a>
           </div>

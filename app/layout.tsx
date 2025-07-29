@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import '@fontsource/inter/100.css'
+import '@fontsource/inter/200.css'
+import '@fontsource/inter/300.css'
+import '@fontsource/inter/400.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Terrace Party',
+  description: 'Exclusive after-party on the terrace',
 }
 
 export default function RootLayout({
@@ -14,10 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Removed Geist font; using global font-sans and minimal styles */}
-      </head>
-      <body className="font-sans bg-background text-foreground antialiased">{children}</body>
+      <body className="font-sans font-light bg-gradient-light text-foreground antialiased min-h-screen tracking-tight">
+        {children}
+      </body>
     </html>
   )
 }

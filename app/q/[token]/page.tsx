@@ -50,9 +50,10 @@ export default function QRValidationPage() {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-light text-foreground flex items-center justify-center relative">
+        <div className="absolute inset-0 bg-pattern-lines opacity-5" />
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-navy mx-auto mb-6"></div>
           <p>Validazione QR code...</p>
         </div>
       </div>
@@ -61,11 +62,13 @@ export default function QRValidationPage() {
 
   if (status === "valid" && result) {
     return (
-      <div className="min-h-screen bg-background text-foreground p-8">
+      <div className="min-h-screen bg-gradient-light text-foreground p-12 relative">
+        <div className="absolute inset-0 bg-pattern-lines opacity-5" />
         <div className="max-w-md mx-auto pt-16 text-center">
           {/* Success */}
-          <div className="mb-8">
-            <div className="w-24 h-24 bg-accent rounded-full mx-auto mb-6 flex items-center justify-center animate-pulse text-white">
+          <div className="mb-12 relative">
+            <div className="corner-decoration corner-decoration-tl" />
+            <div className="w-32 h-32 bg-gradient-navy rounded-full mx-auto mb-8 flex items-center justify-center animate-float shadow-elegant">
               <span className="text-4xl">🌊</span>
             </div>
             <div className="space-y-2">
@@ -74,57 +77,50 @@ export default function QRValidationPage() {
               </h1>
               <p>Sei pronto per la festa in terrazza!</p>
             </div>
+            <div className="corner-decoration corner-decoration-br" />
           </div>
 
           {/* Party Details */}
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+          <div className="luxury-card hover-lift mb-8">
             <div className="space-y-4">
               <div className="flex items-center justify-center space-x-2">
                 <span className="text-2xl">🕛</span>
                 <div>
-                  <p className="font-semibold text-gray-800">Inizio festa</p>
+                  <p className="font-semibold text-navy">Inizio festa</p>
                   <p>Mezzanotte (00:00)</p>
                 </div>
               </div>
 
-              <div className="border-t pt-4">
-                <div className="flex items-center justify-center space-x-2">
-                  <span className="text-2xl">📍</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">Location</p>
-                    <p className="text-gray-600">Terrazza sul Mare</p>
-                  </div>
+              <div className="luxury-divider my-6" />
+
+              <div className="flex items-center justify-center space-x-2">
+                <span className="text-2xl">📍</span>
+                <div>
+                  <p className="font-semibold text-navy">Location</p>
+                  <p>Terrazza sul Mare</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Social */}
-          <div className="bg-muted rounded-lg p-4 mb-6">
+          <div className="luxury-card bg-navy/5 hover-lift mb-8">
             <p>Seguici per aggiornamenti:</p>
             <p className="text-accent">@{result.request.instagram}</p>
           </div>
 
           {/* Important Note */}
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="luxury-card bg-yellow-50/80 border-yellow-200">
             <div className="flex items-start space-x-2">
               <span className="text-yellow-600 text-xl">⚠️</span>
               <div className="text-left">
-                <p className="font-medium text-yellow-800">Importante:</p>
+                <p className="font-medium text-yellow-800 mb-2">Importante:</p>
                 <p className="text-sm text-yellow-700">
                   Questo QR code è ora utilizzato e non può essere scansionato di nuovo. Salva questa pagina o fai uno
                   screenshot.
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Footer */}
-          <div className="mt-8 text-center">
-            <p className="text-gray-500 text-sm">
-              Ci vediamo in terrazza! 🥂<br />
-              Domande? Contatta gli organizzatori.
-            </p>
           </div>
         </div>
       </div>
@@ -135,23 +131,26 @@ export default function QRValidationPage() {
   const message = status === "used" ? "QR code già utilizzato" : "QR code non valido"
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-8">
+    <div className="min-h-screen bg-gradient-light text-foreground p-12 relative">
+      <div className="absolute inset-0 bg-pattern-lines opacity-5" />
       <div className="max-w-md mx-auto pt-16 text-center">
         {/* Error Icon */}
-        <div className="mb-8">
-          <div className="w-24 h-24 bg-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+        <div className="mb-12 relative">
+          <div className="corner-decoration corner-decoration-tl" />
+          <div className="w-32 h-32 bg-red-100 rounded-full mx-auto mb-8 flex items-center justify-center animate-float shadow-elegant">
             <span className="text-4xl">❌</span>
           </div>
           <div className="space-y-2">
             <h1>Ops!</h1>
             <p>{message}</p>
           </div>
+          <div className="corner-decoration corner-decoration-br" />
         </div>
 
         {/* Error Details */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+        <div className="luxury-card hover-lift mb-8">
           <div className="text-left">
-            <h3 className="font-semibold text-gray-800 mb-2">Possibili motivi:</h3>
+            <h3 className="mb-4">Possibili motivi:</h3>
             <ul className="text-sm text-gray-600 space-y-1">
               <li>• QR code già utilizzato</li>
               <li>• QR code non valido o scaduto</li>
@@ -162,9 +161,9 @@ export default function QRValidationPage() {
 
         {/* Show used info if available */}
         {status === "used" && result && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+          <div className="luxury-card bg-navy/5 hover-lift mb-8">
             <div className="text-left">
-              <p className="font-medium text-gray-800">Questo QR code è stato usato da:</p>
+              <p className="font-medium text-navy mb-2">Questo QR code è stato usato da:</p>
               <p className="text-sm text-gray-600">
                 {result.request.firstName} {result.request.lastName}
               </p>
@@ -176,11 +175,11 @@ export default function QRValidationPage() {
         )}
 
         {/* Help */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="luxury-card bg-navy/5 hover-lift mb-8">
           <div className="flex items-start space-x-2">
             <span className="text-blue-600 text-xl">💡</span>
             <div className="text-left">
-              <p className="font-medium text-blue-800">Serve aiuto?</p>
+              <p className="font-medium text-navy mb-2">Serve aiuto?</p>
               <p className="text-sm text-blue-700">
                 Contatta gli organizzatori o controlla la tua email di invito per il QR code corretto.
               </p>
@@ -192,7 +191,7 @@ export default function QRValidationPage() {
         <div className="space-y-3">
           <a
             href="/"
-            className="block w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+            className="luxury-button block w-full"
           >
             Richiedi Nuovo Accesso
           </a>

@@ -1,7 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { deleteRequest, updateRequest } from "@/lib/database"
+import { deleteRequest, updateRequest, validateSession } from "@/lib/database"
 
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+  // Check authentication
+  const sessionToken = request.cookies.get("session")?.value
+  if (!sessionToken || !validateSession(sessionToken)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  }
+
   const { id } = params
   const success = deleteRequest(id)
   if (!success) {
@@ -11,6 +17,12 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
 }
 
 export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+  // Check authentication
+  const sessionToken = request.cookies.get("session")?.value
+  if (!sessionToken || !validateSession(sessionToken)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  }
+
   const { id } = params
   const body = await request.json()
   const { firstName, lastName, email, instagram } = body

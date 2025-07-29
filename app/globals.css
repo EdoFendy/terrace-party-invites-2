@@ -4,7 +4,7 @@
 
 @layer base {
   html, body {
-    @apply bg-background text-foreground antialiased font-sans;
+    @apply bg-gradient-light text-foreground antialiased font-sans bg-pattern-lines font-light;
   }
   a {
     @apply text-accent hover:underline;
@@ -17,18 +17,127 @@
     @apply leading-relaxed text-base;
   }
   h1 {
-    @apply text-4xl font-bold mb-4 tracking-tight;
+    @apply font-display text-5xl font-light mb-8 tracking-tight text-primary relative;
+    letter-spacing: -0.025em;
   }
   h2 {
-    @apply text-3xl font-semibold mb-3 tracking-tight;
+    @apply font-display text-3xl font-extralight mb-6 tracking-tight text-navy-light;
+    letter-spacing: -0.025em;
   }
   h3 {
-    @apply text-2xl font-semibold mb-2;
+    @apply font-accent text-2xl font-light mb-4 text-navy tracking-tight;
   }
   p {
-    @apply mb-4;
+    @apply mb-6 leading-relaxed font-light text-base tracking-tight;
   }
   li {
     @apply mb-2;
+  }
+
+  /* Modern Luxury Components */
+  .luxury-card {
+    @apply bg-white/80 rounded-lg p-8 shadow-elegant border border-border backdrop-blur-sm
+           relative overflow-hidden transition-all duration-500 hover:shadow-navy;
+    &::before {
+      content: '';
+      @apply absolute inset-0 bg-pattern-lines opacity-5;
+    }
+    &::after {
+      content: '';
+      @apply absolute top-0 left-0 w-full h-px bg-gradient-navy opacity-20;
+    }
+  }
+
+  .luxury-button {
+    @apply bg-gradient-navy text-white font-light py-3 px-8 rounded-sm
+           transition-all duration-300 shadow-elegant hover:shadow-navy hover:scale-105
+           disabled:opacity-50 disabled:cursor-not-allowed tracking-widest uppercase text-sm;
+    &::before {
+      content: '';
+      @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300;
+    }
+    &:hover::before {
+      @apply opacity-100;
+    }
+  }
+
+  .luxury-input {
+    @apply bg-white border border-border rounded-sm px-4 py-3
+           focus:outline-none focus:ring-1 focus:ring-navy/30
+           text-foreground placeholder-foreground/40 font-light
+           transition-all duration-300 relative z-10;
+  }
+
+  /* Animations */
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 8s infinite linear;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 169, 92, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 2000px 100%;
+  }
+
+  /* Decorative Elements */
+  .luxury-divider {
+    @apply my-12 h-px bg-gradient-navy relative overflow-hidden opacity-20;
+    &::before {
+      content: '';
+      @apply absolute top-0 left-0 w-full h-full bg-pattern-lines opacity-10;
+    }
+  }
+
+  .luxury-border {
+    @apply border border-navy/10 rounded-sm shadow-elegant
+           relative overflow-hidden;
+    &::after {
+      content: '';
+      @apply absolute inset-0 border-2 border-navy/5 rounded-lg;
+      margin: -1px;
+    }
+  }
+
+  /* Animated Decorations */
+  .corner-decoration {
+    @apply absolute w-12 h-12 pointer-events-none;
+    &::before, &::after {
+      content: '';
+      @apply absolute bg-navy/10 transition-all duration-500;
+    }
+    &::before {
+      @apply w-full h-px;
+    }
+    &::after {
+      @apply w-px h-full;
+    }
+  }
+
+  .corner-decoration-tl {
+    @apply top-0 left-0;
+    &::before, &::after {
+      @apply origin-top-left;
+    }
+  }
+
+  .corner-decoration-br {
+    @apply bottom-0 right-0;
+    &::before, &::after {
+      @apply origin-bottom-right;
+    }
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-500;
+    &:hover {
+      @apply -translate-y-1 shadow-navy;
+    }
   }
 }
